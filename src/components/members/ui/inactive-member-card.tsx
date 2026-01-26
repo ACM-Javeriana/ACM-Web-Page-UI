@@ -34,7 +34,7 @@ export const InactiveMemberCard: React.FC<InactiveMemberCardProps> = ({
               <Badge
                 key={index}
                 variant="secondary"
-                className="text-xs bg-blue-50 text-blue-700 hover:bg-blue-100 dark:text-white dark:glassmorphic transition-colors duration-200 py-1 px-2.5 select-none"
+                className="text-xs bg-blue-50 text-blue-700 hover:bg-blue-100 dark:text-(--azul-ultramar) dark:glassmorphic transition-colors duration-200 py-1 px-2.5 select-none"
               >
                 {skill}
               </Badge>
@@ -42,7 +42,7 @@ export const InactiveMemberCard: React.FC<InactiveMemberCardProps> = ({
             {member.skills.length > 4 && (
               <Badge
                 variant="outline"
-                className="text-xs dark:text-white/80 dark:border-white/30 dark:glassmorphic bg-blue-50 text-blue-700  py-1 select-none"
+                className="text-xs dark:text-(--azul-ultramar) dark:border-white/30 dark:glassmorphic bg-blue-50 text-blue-700  py-1 select-none"
               >
                 +{member.skills.length - 4}
               </Badge>

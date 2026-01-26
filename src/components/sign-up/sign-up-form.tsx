@@ -7,6 +7,8 @@ import { Eye, EyeClosed, Upload, X } from "lucide-react";
 import { signup } from "@/app/(auth)/sign-up/actions";
 import { useRouter } from "next/navigation";
 import { useLoadingAction } from "@/hooks/use-loading-action";
+import { toast } from "react-hot-toast";
+import { showToast, ToastType } from "@/utils/show-toast";
 
 export function SignUpForm() {
   const [name, setName] = useState("");
@@ -69,7 +71,12 @@ export function SignUpForm() {
       return; // Detener la ejecución sin lanzar error
     }
 
-    router.push("/log-in");
+    showToast(toast, {
+      type: ToastType.OK,
+      message: "Te envíaremos un correo de confirmación. Redirigiendo...",
+    });
+
+    setTimeout(() => router.push("/log-in"), 2000);
   };
 
   const { run: handleSubmit, isLoading: loading } =
@@ -165,7 +172,7 @@ export function SignUpForm() {
           Avatar (Opcional)
         </label>
         <div className="flex items-center gap-4">
-          <div className="flex-1">
+          <div className="flex-1 max-w-[80%]">
             <input
               ref={fileInputRef}
               id="avatar"
@@ -186,11 +193,11 @@ export function SignUpForm() {
             </p>
           </div>
           {avatarPreview && (
-            <div className="relative">
+            <div className="flex-2 relative">
               <img
                 src={avatarPreview}
                 alt="Avatar Preview"
-                className="h-20 w-20 rounded-full object-cover ring-2 ring-(--azul-electrico)"
+                className="h-20 w-20 min-w-20 min-h-20 rounded-full object-cover ring-2 ring-(--azul-electrico)"
               />
               <button
                 type="button"
