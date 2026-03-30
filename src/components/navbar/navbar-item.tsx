@@ -1,5 +1,6 @@
 "use client";
 import React, { ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import { NavbarItemTitle } from "./navbar-item-title";
 import {
   Dropdown,
@@ -8,7 +9,6 @@ import {
   DropdownTrigger,
 } from "@heroui/dropdown";
 import { Button } from "@heroui/react";
-import Link from "next/link";
 
 export type DropdownNavItem = {
   key: string;
@@ -34,16 +34,27 @@ export interface NavbarItemProps {
 }
 
 export const NavbarItem: React.FC<NavbarItemProps> = ({ item, activeLink }) => {
+  const router = useRouter();
+
   if (!item.isDropdown) {
     return <NavbarItemTitle item={item} activeLink={activeLink} />;
   }
+
+  const handleDropdownitem = (href: string, isExternal?: boolean) => {
+    if (isExternal) {
+      window.open(href, "_blank", "noopener noreferrer");
+    } else {
+      router.push(href);
+    }
+  };
 
   return (
     <Dropdown shouldCloseOnScroll={false}>
       <DropdownTrigger>
         <Button
-          disableAnimation
-          className="p-0 min-w-0 bg-transparent shadow-none border-none"
+          variant="light"
+          disableRipple
+          className="p-0 min-w-0 bg-transparent shadow-none border-none hover:bg-transparent data-[hover=true]:bg-transparent data-[pressed=true]:bg-transparent data-[focus=true]:bg-transparent"
         >
           <NavbarItemTitle item={item} activeLink={activeLink} />
         </Button>
@@ -54,14 +65,12 @@ export const NavbarItem: React.FC<NavbarItemProps> = ({ item, activeLink }) => {
             key={dropdown_item.key}
             description={dropdown_item.description}
             startContent={dropdown_item.logo}
-            className="no-underline text-(--azul-electrico)"
+            className="no-underline text-(--azul-electrico) cursor-pointer"
+            onPress={() =>
+              handleDropdownitem(dropdown_item.href, dropdown_item.isExternal)
+            }
           >
-            <Link
-              href={dropdown_item.href}
-              className="block w-full no-underline"
-            >
-              {dropdown_item.title}
-            </Link>
+            {dropdown_item.title}
           </DropdownItem>
         )}
       </DropdownMenu>
