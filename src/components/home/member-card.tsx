@@ -21,7 +21,8 @@ const ActiveMemberCard = ({ member, onClick }: MemberCardProps) => {
       <CardContent className="p-0 h-full relative">
         {/* Background Image with Parallax Effect */}
         <div className="absolute inset-0 overflow-hidden">
-          {member.image && !imageError ? (
+          {/* Era más clean sin el .length, pero no servía XD */}
+          {member.image.length > 5 && !imageError ? (
             <div className="relative w-full h-full">
               <div className="w-full h-full transition-transform duration-700 group-hover:scale-110">
                 <Image
