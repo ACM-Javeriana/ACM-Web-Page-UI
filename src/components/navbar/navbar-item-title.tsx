@@ -1,38 +1,48 @@
 import { ChevronDown, ExternalLinkIcon } from "lucide-react";
 import { NavbarItemProps } from "./navbar-item";
 import Link from "next/link";
+import React from "react";
 
 export const NavbarItemTitle: React.FC<NavbarItemProps> = ({
   item,
   activeLink,
 }) => {
+  const isActive = activeLink === item.key;
   const Item = !item.isDropdown ? Link : "div";
+
   return (
     <Item
       {...(!item.isDropdown && { href: item.href })}
       {...(item.isExternal && { target: "_blank", rel: "noopener noreferrer" })}
-      className={`text-base text-semibold relative mb-0 hover:cursor-pointer ${
-        activeLink === item.key
-          ? "text-(--azul-electrico) dark:text-(--azul-niebla)"
-          : "text-(--azul-noche) dark:text-white"
-      }`}
-      style={{
-        textDecoration: "none",
-        transition: "color var(--transition-normal)",
-      }}
+      className="no-underline"
     >
-      <div className="flex justify-center">
-        {item.label}
-        {item.isDropdown && <ChevronDown />}
-        {item.isExternal && <ExternalLinkIcon className="mx-1.5" />}
-      </div>
-      <span
-        className={`absolute bottom-0 left-1/2 h-0.75 rounded-sm transform -translate-x-[70%] bg-(--azul-electrico) dark:bg-(--azul-niebla)`}
+      <div
+        className={`relative px-0 py-0 cursor-pointer transition-colors ${
+          isActive
+            ? "text-(--azul-electrico) dark:text-(--azul-niebla)"
+            : "text-black dark:text-white"
+        }`}
         style={{
-          width: activeLink === item.key ? "30px" : "0",
-          transition: "width var(--transition-normal)",
+          textDecoration: "none",
+          transition: "color var(--transition-normal)",
         }}
-      ></span>
+      >
+        <div className="text-lg font-semibold relative mb-0 hover:cursor-pointer flex items-center gap-0">
+          <span>{item.label}</span>
+
+          {item.isDropdown && <ChevronDown className="w-6 h-6" />}
+
+          {item.isExternal && <ExternalLinkIcon className="mx-1.5 " />}
+        </div>
+
+        <span
+          className="absolute bottom-0 left-1/2 h-0.75 rounded-sm transform -translate-x-[70%] bg-(--azul-electrico) dark:bg-(--azul-niebla)"
+          style={{
+            width: isActive ? "38px" : "0px",
+            transition: "width var(--transition-normal)",
+          }}
+        />
+      </div>
     </Item>
   );
 };

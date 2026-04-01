@@ -18,13 +18,19 @@ export function Roadmap() {
       number: 1,
       title: t("step1.title"),
       subtitle: t("step1.subtitle"),
-      videoSrc:
-        "https://www.youtube.com/watch?v=QFzXQNZ6zvQ&pp=ugUEEgJlbtIHCQlNCgGHKiGM7w%3D%3D",
+      videoSrc: "https://youtu.be/EVUEIHcbZic",
     },
     {
       number: 2,
       title: t("step2.title"),
       subtitle: t("step2.subtitle"),
+      videoSrc: "https://youtu.be/EVUEIHcbZic",
+    },
+    {
+      number: 3,
+      title: t("step3.title"),
+      subtitle: t("step3.subtitle"),
+      videoSrc: "https://www.youtube.com/watch?v=2iC96v5MZ5o",
     },
   ];
 
@@ -160,7 +166,7 @@ export function Roadmap() {
                   number={step.number}
                   title={step.title}
                   subtitle={step.subtitle}
-                  videoSrc="https://youtu.be/EVUEIHcbZic"
+                  videoSrc={step.videoSrc}
                 />
               </div>
             </div>

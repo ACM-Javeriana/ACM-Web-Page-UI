@@ -1,7 +1,7 @@
 interface VerticalSeparatorProps {
   height?: string;
   className?: string;
-  color: string;
+  color?: string;
 }
 
 export function VerticalSeparator({
@@ -9,11 +9,12 @@ export function VerticalSeparator({
   className = "",
   color = "white",
 }: VerticalSeparatorProps) {
-  const bg_color: string = `bg-${color}`;
-  const via_color: string = `via-${color}`;
-  const via_color_80: string = `via-${color}/80`;
-  const to_color: string = `to-${color}`;
-  const from_color: string = `from-${color}`;
+  const normalizedColor =
+    color.startsWith("(--") && color.endsWith(")")
+      ? `var${color}`
+      : color.startsWith("--")
+        ? `var(${color})`
+        : color;
 
   return (
     <div
@@ -21,47 +22,62 @@ export function VerticalSeparator({
     >
       {/* Top decorative diamond */}
       <div
-        className={`w-2 h-2 ${bg_color} rotate-45 shadow-lg shadow-white/50`}
+        className="w-2 h-2 rotate-45 shadow-lg shadow-white/50"
+        style={{ backgroundColor: normalizedColor }}
       />
 
       {/* Top gradient line */}
       <div
-        className={`w-px h-12  bg-linear-to-b from-transparent via-(--azul-electrico) to-(--azul-electrico)`}
+        className="w-px h-12"
+        style={{
+          background: `linear-gradient(to bottom, transparent, ${normalizedColor}, ${normalizedColor})`,
+        }}
       />
 
       {/* Center decorative circle */}
       <div className="relative">
         <div
-          className={`w-3 h-3 ${bg_color} rounded-full shadow-lg shadow-white/50`}
+          className="w-3 h-3 rounded-full shadow-lg shadow-white/50"
+          style={{ backgroundColor: normalizedColor }}
         />
         <div
-          className={`absolute inset-0 w-3 h-3 ${bg_color} rounded-full animate-ping opacity-75`}
+          className="absolute inset-0 w-3 h-3 rounded-full animate-ping opacity-75"
+          style={{ backgroundColor: normalizedColor }}
         />
       </div>
 
       {/* Main line */}
       <div
-        className={`w-px flex-1 bg-linear-to-b ${from_color} ${via_color_80} ${to_color}`}
+        className="w-px flex-1"
+        style={{
+          background: `linear-gradient(to bottom, ${normalizedColor}, color-mix(in srgb, ${normalizedColor} 80%, transparent), ${normalizedColor})`,
+        }}
       />
 
       {/* Bottom decorative circle */}
       <div className="relative">
         <div
-          className={`w-3 h-3 ${bg_color} rounded-full shadow-lg shadow-white/50`}
+          className="w-3 h-3 rounded-full shadow-lg shadow-white/50"
+          style={{ backgroundColor: normalizedColor }}
         />
         <div
-          className={`absolute inset-0 w-3 h-3 ${bg_color} rounded-full animate-ping opacity-75`}
+          className="absolute inset-0 w-3 h-3 rounded-full animate-ping opacity-75"
+          style={{ backgroundColor: normalizedColor }}
         />
       </div>
 
       {/* Bottom gradient line */}
       <div
-        className={`w-px h-12 bg-linear-to-b ${from_color} to-transparent`}
+        className="w-px h-12"
+        style={{
+          background: `linear-gradient(to bottom, ${normalizedColor}, transparent)`,
+        }}
       />
 
       {/* Bottom decorative diamond */}
       <div
-        className={`w-2 h-2 ${bg_color} rotate-45 shadow-lg shadow-white/50`}
+        className="w-2 h-2 rotate-45 shadow-lg shadow-white/50"
+        style={{ backgroundColor: normalizedColor }}
       />
     </div>
   );
