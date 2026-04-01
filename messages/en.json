@@ -275,6 +275,10 @@
       "step2": {
         "title": "Submitting your first problem to the Codeforces platform",
         "subtitle": "How do I submit a problem?"
+      },
+      "step3": {
+        "title": "CodeForces Veredict",
+        "subtitle": "What're the meanings for each veredict in CodeForces?"
       }
     }
   },
