@@ -140,6 +140,7 @@
         "topics": "Temas",
         "materials": "Material del Curso"
       },
+
       "topics": {
         "dataStructures": "Estructuras de datos",
         "programmingLogic": "Lógica de programación",
@@ -147,6 +148,7 @@
         "algorithmicThinking": "Pensamiento algorítmico",
         "basicProgramming": "Programación básica"
       },
+
       "items": {
         "python": {
           "title": "Curso De Python",
@@ -271,12 +273,20 @@
         "subtitle": "¿Qué es la liga? ¿Qué necesito para participar?"
       },
       "step2": {
+        "title": "Usando Usaco IDE para escribir la solución a un problema",
+        "subtitle": "¿En donde escribo mi codigo?"
+      },
+      "step3": {
         "title": "Subiendo tu primer problema a la plataforma de Codeforces",
         "subtitle": "¿Cómo envío un problema?"
       },
-      "step3": {
+      "step4": {
         "title": "Respuestas CodeForces",
         "subtitle": "¿Qué significan los veredictos que el juez lanza de mis problemas?"
+      },
+      "step5": {
+        "title": "Acciones dentro de la pagina del capitulo",
+        "subtitle": "¿Que pasos debo seguir dentro de la pagina?"
       }
     }
   },

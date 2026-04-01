@@ -273,12 +273,20 @@
         "subtitle": "What is the league? What do I need to participate?"
       },
       "step2": {
+        "title": "Using the USACO IDE to write the solution to a problem",
+        "subtitle": "Where do I write my code?"
+      },
+      "step3": {
         "title": "Submitting your first problem to the Codeforces platform",
         "subtitle": "How do I submit a problem?"
       },
-      "step3": {
+      "step4": {
         "title": "CodeForces Veredict",
         "subtitle": "What're the meanings for each veredict in CodeForces?"
+      },
+      "step5": {
+        "title": "Actions within the chapter page",
+        "subtitle": "What steps should I follow on the page?"
       }
     }
   },
