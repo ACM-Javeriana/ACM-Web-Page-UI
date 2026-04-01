@@ -18,19 +18,31 @@ export function Roadmap() {
       number: 1,
       title: t("step1.title"),
       subtitle: t("step1.subtitle"),
-      videoSrc: "https://youtu.be/EVUEIHcbZic",
+      videoSrc: "https://youtu.be/_nwVJd0BuEA",
     },
     {
       number: 2,
       title: t("step2.title"),
       subtitle: t("step2.subtitle"),
-      videoSrc: "https://youtu.be/EVUEIHcbZic",
+      videoSrc: "https://youtu.be/YkIaDIJXyX0",
     },
     {
       number: 3,
       title: t("step3.title"),
       subtitle: t("step3.subtitle"),
-      videoSrc: "https://www.youtube.com/watch?v=2iC96v5MZ5o",
+      videoSrc: "https://youtu.be/EVUEIHcbZic",
+    },
+    {
+      number: 4,
+      title: t("step4.title"),
+      subtitle: t("step4.subtitle"),
+      videoSrc: "https://youtu.be/2iC96v5MZ5o",
+    },
+    {
+      number: 5,
+      title: t("step5.title"),
+      subtitle: t("step5.subtitle"),
+      videoSrc: "https://youtu.be/tlKhIj8F1qA",
     },
   ];
 
