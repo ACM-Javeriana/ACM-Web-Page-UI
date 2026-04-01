@@ -273,6 +273,10 @@
       "step2": {
         "title": "Subiendo tu primer problema a la plataforma de Codeforces",
         "subtitle": "¿Cómo envío un problema?"
+      },
+      "step3": {
+        "title": "Respuestas CodeForces",
+        "subtitle": "¿Qué significan los veredictos que el juez lanza de mis problemas?"
       }
     }
   },
